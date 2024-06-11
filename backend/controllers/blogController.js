@@ -10,6 +10,16 @@ export const getBlogs = async (req, res) => {
     res.status(500).json({ error: "internal server error" });
   }
 };
+export const getBlog = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const blog = await Blog.findById(_id);
+    res.status(200).json(blog);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "internal server error" });
+  }
+};
 
 export const createBlog = async (req, res) => {
   try {

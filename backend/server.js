@@ -3,9 +3,11 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
+app.use(cors());
 
 const PORT = process.env.PORT;
 const MONG_URI = process.env.MONG_URI;
